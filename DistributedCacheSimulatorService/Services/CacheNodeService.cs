@@ -30,5 +30,15 @@ namespace DistributedCacheSimulatorService.Services
                 return null;
             }
         }
+
+        public void ShowContent()
+        {
+            Console.WriteLine($"\n[Node {NodeId}] Cached Contents:");
+            foreach (var kvp in CacheStorage)
+            {
+                Console.WriteLine($"{kvp.Key} -> {kvp.Value}");
+            }
+            Console.WriteLine();
+        }
     }
 }
