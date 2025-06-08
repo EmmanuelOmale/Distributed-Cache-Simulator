@@ -16,5 +16,19 @@ namespace DistributedCacheSimulatorService.Services
             CacheStorage[Key] = value;
             Console.WriteLine($"[Node {NodeId}] Cached: {Key} -> {value}");
         }
+
+        public string? Get(string key)
+        {
+            if (CacheStorage.TryGetValue(key, out var value))
+            {
+                Console.WriteLine($"[Node {NodeId}] Cache HIT for key: {key}");
+                return value;
+            }
+            else
+            {
+                Console.WriteLine($"[Node {NodeId}] Cache MISS for key: {key}");
+                return null;
+            }
+        }
     }
 }
